@@ -1,6 +1,9 @@
 import supabase from "../config/supabaseClient"
 import { useEffect, useState } from 'react'
 
+// Components
+import MusicCard from "../components/MusicCard"
+
 const Home = () => {
   const [fetchError, setFetchError] = useState(null)
   const [music, setMusic] = useState(null)
@@ -31,7 +34,8 @@ const Home = () => {
       {music && (
         <div className="music">
           {music.map(music => (
-            <p>{music.title}</p>
+            // <p>{music.title }</p>
+           <MusicCard key={music.id} music={music} />
           ))}
         </div>
       )}

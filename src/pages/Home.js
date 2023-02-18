@@ -34,8 +34,7 @@ const Home = () => {
       {music && (
         <div className="music">
           {music.map(music => (
-            // <p>{music.title }</p>
-           <MusicCard key={music.id} music={music} />
+            <MusicCard key={music.id} music={music} />
           ))}
         </div>
       )}

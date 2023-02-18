@@ -13,7 +13,7 @@ function App() {
         <h1>Supa Music</h1>
         <Link to="/Discover">Discover</Link>
         <Link to="/">Comments</Link>
-        <Link to="/create">Comments</Link>
+        <Link to="/create">Create</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -8,6 +8,7 @@ const MusicCard = ({ music, onDelete }) => {
             .from('music')
             .delete()
             .eq('id', music.id)
+            .select()
 
         if (error) {
             console.log(data)

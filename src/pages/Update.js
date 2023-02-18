@@ -13,16 +13,15 @@ const Update = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
     if (!title || !method || !rating) {
       setFormError('Please fill in all fields')
       return
     }
-
     const {data, error} = await supabase
     .from('music') 
     .update([{ title, method, rating }])
     .eq('id', id)
+    .select()
     
     if (error) {
       setFormError('Please fill in all fields')
@@ -34,7 +33,6 @@ const Update = () => {
   }
 
   useEffect(() => {
-    //need to rename !!!
     const fetchComment = async () => {
       const { data, error } = await supabase
         .from('music')

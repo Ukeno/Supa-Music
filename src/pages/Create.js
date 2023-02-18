@@ -18,8 +18,9 @@ const Create = () => {
     }
 
     const {data, error} = await supabase
-      .from('music') //Needs to be filled out cause im not sure on name
+      .from('music') 
       .insert([{ title, method, rating }])
+      .select()
 
     if (error) {
       setFormError('Please fill in all fields')
@@ -27,8 +28,7 @@ const Create = () => {
     if (data) {
       console.log(data)
       setFormError(null)
-      // navigate('/home')
-      window.location.href='/'
+      navigate('/')
     }
   }
 

@@ -2,7 +2,7 @@ import supabase from '../config/supabaseClient'
 import {Link} from 'react-router-dom'
 
 
-const MusicCard = ({ music }) => {
+const MusicCard = ({ music, onDelete }) => {
     const deleteComment = async () => {
         const { data, error } = await supabase
             .from('music')
@@ -14,6 +14,7 @@ const MusicCard = ({ music }) => {
         }
         if (data) {
             console.log(data)
+            onDelete(music.id)
         }
     }
     return (
@@ -25,7 +26,6 @@ const MusicCard = ({ music }) => {
                 <i className='material-icons'>edit</i>
             </Link>
             <i className="material-icons" onClick={deleteComment}>delete</i>
-            <button onClick={deleteComment}>delete</button>
         </div>
     )
 }

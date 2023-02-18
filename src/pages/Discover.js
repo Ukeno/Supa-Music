@@ -1,11 +1,9 @@
 import React from 'react'
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, InputGroup, Card, FormControl, Row, Button} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import songs from "./pages/song-comments";
 
 const CLIENT_ID="0474c79b015843b9b4e9a4b67cbe80c7";
 const CLIENT_SECRET="f5aa899ec05f4ce6bcee4753337bca46";
@@ -76,7 +74,9 @@ function Spotify() {
               <Card.Img src={album.images[0].url}/>
               <Card.Header>Header</Card.Header>
               <Card.Body>
+                <Link to="/create">
               <Card.Title>{album.name}</Card.Title>
+              </Link>
               </Card.Body>
             </Card>
             )

@@ -13,6 +13,7 @@ const Update = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
     if (!title || !method || !rating) {
       setFormError('Please fill in all fields')
       return
@@ -36,7 +37,7 @@ const Update = () => {
     //need to rename !!!
     const fetchComment = async () => {
       const { data, error } = await supabase
-        .from('recipes')
+        .from('music')
         .select()
         .eq('id', id)
         .single()

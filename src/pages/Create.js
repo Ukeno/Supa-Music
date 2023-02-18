@@ -27,7 +27,8 @@ const Create = () => {
     if (data) {
       console.log(data)
       setFormError(null)
-      navigate('/')
+      // navigate('/home')
+      window.location.href='/'
     }
   }
 

@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import supabase from '../config/supabaseClient'
+import Form from 'react-bootstrap/Form'
+import './Create.css'
 
 const Create = () => {
   const navigate = useNavigate()
@@ -33,8 +35,11 @@ const Create = () => {
   }
 
   return (
-    <div className="page create">
-      <form onSubmit={createComment}>
+    <div className='Img'>
+    <div className="page-create" >
+      <Form onSubmit={createComment}>
+
+        <Form.Group id="Title" className="mb-3">
         <label htmlFor="title">Name</label>
         <input 
           type="text"
@@ -43,24 +48,30 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
 
+        </Form.Group>
+        <Form.Group className='mb-3'>
         <label htmlFor="method">Comment</label>
         <textarea
           id="method"
           value={method}
           onChange={(e) => setMethod(e.target.value)}
         />
-
+        </Form.Group>
+        
+        <Form.Group className='mb-3'>
         <label htmlFor="rating">Rating</label>
         <input 
           type="number"
-          id="title"
+          id="rating"
           value={rating}
           onChange={(e) => setRating(e.target.value)}
         />
+        </Form.Group>
 
         <button>Comment</button>
         {formError && <p className='error'>{formError}</p>}
-      </form>
+      </Form>
+    </div>
     </div>
   )
 }

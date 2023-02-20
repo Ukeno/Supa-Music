@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from 'react-router-dom'
 import supabase from "../config/supabaseClient"
+// import './Create.css'
 
 const Update = () => {
   const { id } = useParams()
@@ -54,6 +55,7 @@ const Update = () => {
   }, [id, navigate])
 
   return (
+    <div className='Img'>
     <div className="page update">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Name</label>
@@ -82,6 +84,7 @@ const Update = () => {
         <button>Update Comment</button>
         {formError && <p className='error'>{formError}</p>}
       </form>
+      </div>
     </div>
   )
 }

@@ -58,6 +58,7 @@ function Discover() {
       });
 
     //get artist
+    // eslint-disable-next-line 
     var returnedAlbums = await fetch(
       "https://api.spotify.com/v1/artists/" +
         artistID +
@@ -79,7 +80,7 @@ function Discover() {
             placeholder="Discover"
             type="input"
             onKeyPress={(event) => {
-              if (event.key == "Enter") {
+              if (event.key === "Enter") {
                 search();
               }
             }}

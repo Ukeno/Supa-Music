@@ -12,7 +12,7 @@ function App() {
       <nav>
         <h1>Supa Music</h1>
         <Link to="/Discover">Discover</Link>
-        <Link to="/">Comments</Link>
+        <Link to="/">Home</Link>
         <Link to="/create">Create</Link>
       </nav>
       <Routes>

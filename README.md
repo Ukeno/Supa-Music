@@ -1,7 +1,7 @@
 # Supa-Music
-contributed to by *Ukeno* *Jared7Lu* *Pixelisation*
-<br />*___*
-<br />*___*
+contributed to by *Ukeno*
+<br />*Jared7Lu*
+<br />*Pixelisation*
 <br />
 Built using:
 React & Supabase

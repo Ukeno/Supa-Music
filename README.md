@@ -1,9 +1,9 @@
 # Supa-Music
-contributed to by 
+Contributed to by 
 <br />*Ukeno*
 <br />*Jared7Lu*
 <br />*Pixelisation*
-<br />
+<br /><br />
 Built using:
 React & Supabase
 <br >

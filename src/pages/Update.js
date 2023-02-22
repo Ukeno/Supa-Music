@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from 'react-router-dom'
 import supabase from "../config/supabaseClient"
-// import './Create.css'
+import './Create.css'
 
 const Update = () => {
   const { id } = useParams()
@@ -18,12 +18,12 @@ const Update = () => {
       setFormError('Please fill in all fields')
       return
     }
-    const {data, error} = await supabase
-    .from('music') 
-    .update([{ title, method, rating }])
-    .eq('id', id)
-    .select()
-    
+    const { data, error } = await supabase
+      .from('music')
+      .update([{ title, method, rating }])
+      .eq('id', id)
+      .select()
+
     if (error) {
       setFormError('Please fill in all fields')
     }
@@ -56,34 +56,34 @@ const Update = () => {
 
   return (
     <div className='Img'>
-    <div className="page update">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Name</label>
-        <input 
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <div className="page-update">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Name</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <label htmlFor="method">Comment</label>
-        <textarea
-          id="method"
-          value={method}
-          onChange={(e) => setMethod(e.target.value)}
-        />
+          <label htmlFor="method">Comment</label>
+          <textarea
+            id="method"
+            value={method}
+            onChange={(e) => setMethod(e.target.value)}
+          />
 
-        <label htmlFor="rating">Rating</label>
-        <input 
-          type="number"
-          id="title"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-        />
-
-        <button>Update Comment</button>
-        {formError && <p className='error'>{formError}</p>}
-      </form>
+          <label htmlFor="rating">Rating</label>
+          <input
+            type="number"
+            id="title"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          />
+          <br />
+          <button>Update Comment</button>
+          {formError && <p className='error'>{formError}</p>}
+        </form>
       </div>
     </div>
   )

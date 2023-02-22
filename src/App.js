@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <nav>
-        <h1>Supa Music</h1>
+        <h1>Ⓢ𝓊𝓅𝒶 𝑀𝓊𝓈𝒾𝒸</h1>
         <Link to="/Discover">Discover</Link>
         <Link to="/">Home</Link>
         <Link to="/create">Create</Link>

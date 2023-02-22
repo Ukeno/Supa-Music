@@ -13,7 +13,7 @@ This is the main page where you can see all the comments people have created
 
 ## Discover Page
 This page is were you can discover artists and add a comment to there album
-![Discover page](./public/Discover.png)
+![Discover page](./public/Discover-page.png)
 
 ## Create page
 This page is where you can create a new comment 

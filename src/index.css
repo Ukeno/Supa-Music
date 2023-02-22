@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Cursive:wght@300;400;500;600;800&family=VT323&display=swap'); */
 
 :root {
   --primary: #454545;
@@ -16,7 +15,6 @@ nav {
   background: var(--primary);
   padding: 10px 20px;
   text-align: center;
-  border: 1px solid #487242;
 }
 
 /* Navbar Tabs */
@@ -35,9 +33,9 @@ nav h1 {
 
 /* Home page */
 /* .page {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 50px;
+  max-width: 100vw;
+  margin: auto;
+  padding: 5px;
 } */
 
 /* Cards in Home page */
@@ -45,18 +43,18 @@ nav h1 {
   margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 80px;
+  gap: 100px;
 }
 
 /* #DADBDD silverwhite */
 .music-card {
   width: 100%;
   padding: 10px;
-  background: #DADBDD;
+  background: #B2D2A4;
   box-sizing: border-box;
-  border-radius: 6px;
+  border-radius: 3px;
   position: relative;
-  border: 1px solid black;
+  border: 2px solid #487242;
 }
 
 .music-card .rating {

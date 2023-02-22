@@ -1,6 +1,5 @@
 import supabase from '../config/supabaseClient'
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
 
 const MusicCard = ({ music, onDelete }) => {
     const deleteComment = async () => {
@@ -20,6 +19,7 @@ const MusicCard = ({ music, onDelete }) => {
     }
     return (
         <div className="music-card">
+            {/* music.id */}
             <h3>{music.title}</h3>
             <p>{music.method}</p>
             <div className="rating">{music.rating}</div>

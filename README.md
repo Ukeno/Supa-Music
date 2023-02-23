@@ -1,12 +1,16 @@
 # Supa-Music
 Contributed to by 
-<br />*Ukeno*
-<br />*Jared7Lu*
-<br />*Pixelisation*
-<br /><br />
-Built using:
-React & Supabase
-<br >
+##*Ukeno*
+##*Jared7Lu*
+##*Pixelisation*
+
+##Technoogy:
+###React-Dom
+###Supabase
+###SupabaseClient
+
+[x](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-an-album)
+[Spoitfy setup](https://www.youtube.com/watch?v=1PWDxgqLmDA&t=1728s)
 
 ## Home Page
 This is the main page where you can see all the comments people have created 

@@ -40,7 +40,7 @@ const Create = () => {
           <Form.Group id="Title" className="mb-3">
             <label htmlFor="title">Name</label>
             <input
-              type="text"
+              type="title"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}

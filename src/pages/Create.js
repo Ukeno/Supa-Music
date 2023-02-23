@@ -1,53 +1,97 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import supabase from '../config/supabaseClient'
-import Form from 'react-bootstrap/Form'
-import './Create.css'
+import { useNavigate, useSearchParams } from "react-router-dom";
+import supabase from "../config/supabaseClient";
+import Form from "react-bootstrap/Form";
+import "./Create.css";
+import { useState, useEffect } from "react";
 
 const Create = () => {
-  const navigate = useNavigate()
-  const [title, setTitle] = useState('')
-  const [method, setMethod] = useState('')
-  const [rating, setRating] = useState('')
-  const [formError, setFormError] = useState(null)
+  const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [method, setMethod] = useState("");
+  const [rating, setRating] = useState("");
+  const [formError, setFormError] = useState(null);
+  const [accessToken, setAccessToken] = useState("data");
+  const [album, setAlbum] = useState(null);
+  const [params, setParams] = useSearchParams();
+  
+  const CLIENT_ID = "0474c79b015843b9b4e9a4b67cbe80c7";
+  const CLIENT_SECRET = "f5aa899ec05f4ce6bcee4753337bca46";
+
+  //Spotify Token
+  useEffect(() => {
+    var tellFetch = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body:
+        "grant_type=client_credentials&client_id=" +
+        CLIENT_ID +
+        "&client_secret=" +
+        CLIENT_SECRET,
+    };
+    fetch("https://accounts.spotify.com/api/token", tellFetch)
+      .then((result) => result.json())
+      .then((data) => {setAccessToken(data.access_token) ; getAlbum()});
+  }, []);
+
+  //Arist id
+  async function getAlbum() {
+    var searchPara = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + accessToken,
+      },
+    };
+    await fetch(
+      "https://api.spotify.com/v1/albums/" + params.get("id"),
+      searchPara
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setAlbum(data);
+      });
+  }
 
   const createComment = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!title || !method || !rating) {
-      setFormError('Please fill in all fields')
-      return
+      setFormError("Please fill in all fields");
+      return;
     }
 
     const { data, error } = await supabase
-      .from('music')
+      .from("music")
       .insert([{ title, method, rating }])
-      .select()
+      .select();
 
     if (error) {
-      setFormError('Please fill in all fields')
+      setFormError("Please fill in all fields");
     }
     if (data) {
-      console.log(data)
-      setFormError(null)
-      navigate('/')
+      console.log(data);
+      setFormError(null);
+      navigate("/");
     }
-  }
+  };
 
   return (
-    <div className='Img'>
-      <div className="page-create" >
+    <div className="Img">
+      <div className="page-create">
         <Form onSubmit={createComment}>
           <Form.Group id="Title" className="mb-3">
             <label htmlFor="title">Name</label>
             <input
-              type="title"
-              id="title"
-              value={title}
+              type="image"
+              id="image"
+              src= {album.images[0].url}
+              alt="album photo"
               onChange={(e) => setTitle(e.target.value)}
             />
-
           </Form.Group>
-          <Form.Group className='mb-3'>
+          <Form.Group className="mb-3">
             <label htmlFor="method">Comment</label>
             <textarea
               id="method"
@@ -56,7 +100,7 @@ const Create = () => {
             />
           </Form.Group>
 
-          <Form.Group className='mb-3'>
+          <Form.Group className="mb-3">
             <label htmlFor="rating">Rating</label>
             <input
               type="number"
@@ -67,11 +111,11 @@ const Create = () => {
           </Form.Group>
 
           <button>Comment</button>
-          {formError && <p className='error'>{formError}</p>}
+          {formError && <p className="error">{formError}</p>}
         </Form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Create
+export default Create;

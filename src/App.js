@@ -14,7 +14,6 @@ function App() {
         <Link to="/Discover">Discover</Link>
         <Link to="/">Home</Link>
         <Link to="/create">Create</Link>
-        <h6>“Music can open doors”</h6>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

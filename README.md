@@ -9,7 +9,10 @@ Contributed to by
 ###Supabase
 ###SupabaseClient
 
-[x](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-an-album)
+[Github Repository](https://github.com/Ukeno/Supa-Music.git)
+[Vercel](supa-music.vercel.app/)
+
+[Spotify](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-an-album)
 [Spoitfy setup](https://www.youtube.com/watch?v=1PWDxgqLmDA&t=1728s)
 
 ## Home Page

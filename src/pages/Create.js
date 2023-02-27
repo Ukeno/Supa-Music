@@ -85,8 +85,8 @@ const Create = () => {
             <label htmlFor="title">Name</label>
             <input
               type="image"
-              id="title" // image?
-              src="album.image[0].url" // ******* string? *******
+              id="title"
+              src="album.image[0].url"
               alt="Album Photo"
               onChange={(e) => setTitle(e.target.value)}
             />

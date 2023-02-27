@@ -97,7 +97,7 @@ function Discover() {
               <Card border="dark" style={{ width: "18rem" }} key={album.id}>
                 <Card.Img src={album.images[0].url} alt="Album picture" />
                 <Card.Body>
-                  <Link to="/create">
+                  <Link to={"/create?id=" + album.id}>
                     <Card.Title>{album.name}</Card.Title>
                   </Link>
                 </Card.Body>

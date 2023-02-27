@@ -28,15 +28,22 @@
   margin-left: -100px;
 }
 
-label,
 input {
   display: block;
-  margin: auto;
+  margin: 8px;
+  color: black;
 }
 
+/* Lables */
 label {
   color: white;
-  margin: 4px;
+  margin: 8px;
+}
+
+/* Error */
+.error {
+  color: white;
+  margin: 8px;
 }
 
 #title {

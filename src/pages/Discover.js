@@ -61,9 +61,9 @@ function Discover() {
     // eslint-disable-next-line 
     var returnedAlbums = await fetch(
       "https://api.spotify.com/v1/artists/" +
-        artistID +
-        "/albums" +
-        "?include_groups=album&market=US&limit=50",
+      artistID +
+      "/albums" +
+      "?include_groups=album&market=US&limit=50",
       searchPara
     )
       .then((response) => response.json())
@@ -97,6 +97,10 @@ function Discover() {
               <Card border="dark" style={{ width: "18rem" }} key={album.id}>
                 <Card.Img src={album.images[0].url} alt="Album picture" />
                 <Card.Body>
+          
+                  {/* Original */}
+                  {/* <Link to="/create"> */}
+
                   <Link to={"/create?id=" + album.id}>
                     <Card.Title>{album.name}</Card.Title>
                   </Link>

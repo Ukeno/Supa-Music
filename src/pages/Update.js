@@ -14,7 +14,7 @@ const Update = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!title || !method || !rating) {
+    if (!method || !rating) { // (!title || !method || !rating)
       setFormError('Please fill in all fields')
       return
     }

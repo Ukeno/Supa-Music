@@ -1,8 +1,8 @@
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import supabase from "../config/supabaseClient";
 import Form from "react-bootstrap/Form";
 import "./Create.css";
-import { useState, useEffect } from "react";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Create = () => {
   const [accessToken, setAccessToken] = useState("data");
   const [album, setAlbum] = useState(null);
   const [params, setParams] = useSearchParams();
-  
+
   const CLIENT_ID = "0474c79b015843b9b4e9a4b67cbe80c7";
   const CLIENT_SECRET = "f5aa899ec05f4ce6bcee4753337bca46";
 
@@ -32,66 +32,67 @@ const Create = () => {
     };
     fetch("https://accounts.spotify.com/api/token", tellFetch)
       .then((result) => result.json())
-      .then((data) => {setAccessToken(data.access_token) ; getAlbum()});
+      .then((data) => { setAccessToken(data.access_token); getAlbum() });
   }, []);
 
-  //Arist id
+  // //Arist id
   async function getAlbum() {
     var searchPara = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + accessToken,
+        Authorization: "Bearer" + accessToken,
       },
     };
+
     await fetch(
-      "https://api.spotify.com/v1/albums/" + params.get("id"),
+      "https://api.spotify.com/v1/album/" + params.get('id'),
       searchPara
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setAlbum(data);
+        console.log(searchPara) // Shows authorization
       });
   }
 
   const createComment = async (e) => {
-    e.preventDefault();
-    if (!title || !method || !rating) {
-      setFormError("Please fill in all fields");
+    e.preventDefault()
+    if (!method || !rating) { // (!title || !method || !rating) // Disable first entry!
+      setFormError('Please fill in all fields')
       return;
     }
 
     const { data, error } = await supabase
-      .from("music")
+      .from('music')
       .insert([{ title, method, rating }])
-      .select();
+      .select()
 
     if (error) {
-      setFormError("Please fill in all fields");
+      setFormError('Please fill in all fields')
     }
     if (data) {
-      console.log(data);
-      setFormError(null);
-      navigate("/");
+      setFormError(null)
+      navigate("/")
     }
   };
 
   return (
-    <div className="Img">
+    <div className='Img'>
       <div className="page-create">
         <Form onSubmit={createComment}>
-          <Form.Group id="Title" className="mb-3">
+          <Form.Group id="title" className="mb-3">
             <label htmlFor="title">Name</label>
             <input
               type="image"
-              id="image"
-              src= {album.images[0].url}
-              alt="album photo"
+              id="title" // image?
+              src="album.image[0].url" // ******* string? *******
+              alt="Album Photo"
               onChange={(e) => setTitle(e.target.value)}
             />
           </Form.Group>
-          <Form.Group className="mb-3">
+
+          <Form.Group className='mb-3'>
             <label htmlFor="method">Comment</label>
             <textarea
               id="method"
@@ -111,7 +112,7 @@ const Create = () => {
           </Form.Group>
 
           <button>Comment</button>
-          {formError && <p className="error">{formError}</p>}
+          {formError && <p className='error'>{formError}</p>}
         </Form>
       </div>
     </div>

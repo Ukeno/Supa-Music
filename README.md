@@ -1,12 +1,12 @@
+
 # Supa-Music
-Contributed to by 
-<br />*Ukeno*
-<br />*Jared7Lu*
-<br />*Pixelisation*
-<br /><br />
+##Contributed to by 
+###*Ukeno*
+###*Jared7Lu*
+###*Pixelisation*
+
 Built using:
 React & Supabase
-<br >
 
 ## Home Page
 This is the main page where you can see all the comments people have created 

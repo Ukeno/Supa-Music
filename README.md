@@ -1,14 +1,14 @@
 
 # Supa-Music
 Contributed to by 
-##*Ukeno*
-##*Jared7Lu*
-##*Pixelisation*
+*Ukeno*,
+*Jared7Lu*,
+*Pixelisation*
 
-##Technoogy:
-###React-Dom
-###Supabase
-###SupabaseClient
+Technoogy:
+React-Dom,
+Supabase,
+SupabaseClient
 
 [Github Repository](https://github.com/Ukeno/Supa-Music.git)
 [Vercel](supa-music.vercel.app/)
